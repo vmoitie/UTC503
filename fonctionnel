@@ -1,0 +1,32 @@
+#EX1---------------------------------------------------------------
+eur = [50, 20, 35, 100, 80]
+dol = map(lambda x: x*1.1, eur)
+print(list(dol))
+
+#EX2---------------------------------------------------------------
+age = [12, 25, 17, 18, 40, 15, 22]
+age_filtre = filter(lambda x: x>=18, age)
+print(list(age_filtre))
+
+#EX3---------------------------------------------------------------
+vente = [120, 50, 30, 20, 90, 100]
+total = reduce(lambda x, y: x + y, vente)
+
+#EX4---------------------------------------------------------------
+notes = [12, 15, 9, 18, 6, 20, 14]
+
+#Conversion notes
+notes_sur_100 = list(map(lambda x: x * 5, notes))
+print("Notes sur 100 :", notes_sur_100)
+
+#Notes supérieures à 50
+notes_superieures_50 = list(filter(lambda x: x >= 50, notes_sur_100))
+print("Notes >= 50 :", notes_superieures_50)
+
+#Calcul moyenne
+if notes_superieures_50:
+    moyenne = reduce(lambda x, y: x + y, notes_superieures_50) / len(notes_superieures_50)
+else:
+    moyenne = 0
+
+print("Moyenne des notes >= 50 :", moyenne)

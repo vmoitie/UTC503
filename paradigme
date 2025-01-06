@@ -1,0 +1,31 @@
+etudiants = []
+notes = []
+
+nb_etudiants = int(input("Combien d'étudiants sont notés ? "))
+
+#Entrée des données
+for i in range(nb_etudiants):
+    print(f"\nÉtudiant {i + 1}:")
+    etudiants.append(input("Qui est l'étudiant ? "))
+    notes.append(int(input("Entrez sa note : ")))
+
+#Calcul moyenne
+def calculer_moyenne(notes):
+    moyenne = sum(notes) / len(notes)
+    return moyenne
+
+print("La moyenne est de:", calculer_moyenne(notes))
+
+#Repartition des notes sup et inf à 10
+def afficher_repartition(etudiants, notes):
+    bonnes_notes = []
+    mauvaises_notes = []
+    for i in range(len(notes)):
+        if notes[i] >= 10:
+            bonnes_notes.append(etudiants[i])
+        else:
+            mauvaises_notes.append(etudiants[i])
+    return bonnes_notes, mauvaises_notes
+
+print("Les étudiants ayant réussi sont:", afficher_repartition(etudiants,notes)[0])
+print("Les étudiants ayant échoué sont:", afficher_repartition(etudiants, notes)[1])
