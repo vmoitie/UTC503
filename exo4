@@ -1,0 +1,2 @@
+?- homme(X).  % Trouver tous les hommes dans la base de données
+?- parent(X, sophie).  % Rechercher tous les parents de Sophie
