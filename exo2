@@ -1,0 +1,3 @@
+grandparent(X, Y) :- parent(X, Z), parent(Z, Y).
+?- grandparent(X, paul).  % Qui est le grand-parent de Paul ?
+?- grandparent(jacques, sophie).  % Jacques est-il grand-parent de Sophie ?
