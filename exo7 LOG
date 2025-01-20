@@ -1,3 +1,0 @@
-element(X, [X|_]).
-element(X, [_|T]) :- element(X, T).
-?- element(marie, [pierre, marie, paul]).  % Marie est-elle présente ?
