@@ -1,2 +1,0 @@
-frere_ou_soeur(X, Y) :- parent(Z, X), parent(Z, Y), X \= Y.
-?- frere_ou_soeur(paul, sophie).  % Paul a-t-il des frères ou des sœurs ?
