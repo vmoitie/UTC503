@@ -1,0 +1,5 @@
+liste([pierre, marie, paul]).
+
+% Décomposition de la liste
+decomposer([Tete|Queue], Tete, Queue).
+?- liste(L), decomposer(L, T, Q).  % Décomposer la liste
