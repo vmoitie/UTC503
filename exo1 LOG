@@ -1,2 +1,0 @@
-?- pere(X, marc).  % Qui est le père de Marc ?
-?- parent(marc, _).  % Marc a-t-il des enfants ?
