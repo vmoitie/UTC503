@@ -1,5 +1,0 @@
-parent(alain, julie).
-femme(julie).
-
-cousin(X, Y) :- parent(Z, X), parent(W, Y), frere_ou_soeur(Z, W).
-?- cousin(X, paul).  % Trouver les cousins de Paul
