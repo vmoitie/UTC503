@@ -1,2 +1,0 @@
-oncle_ou_tante(X, Y) :- frere_ou_soeur(X, Z), parent(Z, Y).
-?- oncle_ou_tante(X, sophie).  % Qui sont les oncles/tantes de Sophie ?
