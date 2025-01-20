@@ -1,3 +1,0 @@
-longueur([], 0).
-longueur([_|T], N) :- longueur(T, N1), N is N1 + 1.
-?- longueur([pierre, marie, paul], N).  % Calculer la longueur
