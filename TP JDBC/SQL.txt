@@ -1,0 +1,55 @@
+import java.sql.*;
+import java.util.Scanner;
+
+public class Select {
+
+    public static void main(String[] args) {
+        
+        try { 
+            String strClassName = "com.mysql.jdbc.Driver";
+            String dbName = "tp"; 
+            String login = "root"; 
+            String motdepasse = ""; 
+            String strUrl = "jdbc:mysql://localhost/" + dbName;
+
+            Class.forName(strClassName);
+            Connection conn = DriverManager.getConnection(strUrl, login, motdepasse);
+            Statement stUsers = conn.createStatement();  
+
+            ResultSet rsUsers = stUsers.executeQuery("select * from Acces");  
+            while (rsUsers.next()) {
+                System.out.print("Id[" + rsUsers.getInt(1) + "]"
+                        + rsUsers.getString(2)
+                        + "[" + rsUsers.getString("statut") + "] "
+                        + rsUsers.getInt("age") + "\n");
+            }
+
+            // Demander à l'utilisateur quel identifiant il veut supprimer
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Entrez l'ID de l'utilisateur à supprimer : ");
+            int idToDelete = scanner.nextInt();
+
+            // Préparer la requête SQL pour supprimer l'utilisateur
+            String deleteQuery = "DELETE FROM Acces WHERE id = ?";
+            PreparedStatement pstmt = conn.prepareStatement(deleteQuery);
+            pstmt.setInt(1, idToDelete);
+
+            // Exécuter la suppression
+            int rowsAffected = pstmt.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("L'utilisateur avec l'ID " + idToDelete + " a été supprimé.");
+            } else {
+                System.out.println("Aucun utilisateur trouvé avec l'ID " + idToDelete);
+            }
+
+            // Fermer la connexion
+            conn.close();
+        } catch (ClassNotFoundException e) {  
+            System.err.println("Driver non chargé !");  
+            e.printStackTrace();
+        } catch (SQLException e) {
+            System.err.println("Autre erreur !");  
+            e.printStackTrace();
+        }
+    }
+}
